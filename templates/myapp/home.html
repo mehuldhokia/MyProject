@@ -1,0 +1,14 @@
+{% extends '../main_template.html' %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block content %}
+    <h1>Home Page</h1>
+    <h3>Welcome, <font color={{textcolor}}>{{ person_name|truncatewords:2 }}</font></h3>
+    <hr>
+    <p>Thanks for visiting our site...</p>
+{% endblock %}
+
+{% block footer %}
+    <center><b>Created By : </b>M.Sc. Department &copy; 2021</center>
+{% endblock %}

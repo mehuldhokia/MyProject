@@ -1,0 +1,43 @@
+{% extends '../theme.html' %}
+{% load static %}
+
+{% block title %} Contact Page {% endblock %}
+
+{% block content %} 
+
+<section class="page-section" id="contact" style="background-color:#dcdcdc;">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="mt-0">Search Data</h2>
+                <hr class="divider" />
+            </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6">
+                {% if errors %}
+                    {% for err in errors %}
+                    <p align="center" style="color:#f4623a">
+                        {{ err }}
+                        <!-- Please submit a search string. It should not be empty ! -->
+                    </p>
+                    {% endfor %}
+                {% endif %} 
+
+                <form id="searchForm" action="/search/" method="get">
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="name" name="name" type="text" placeholder="Enter the student name..." data-sb-validations="required" />
+                        <label for="name">Student Name</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                    </div>
+                    <div class="d-grid">
+                        <input class="btn btn-primary btn-xl" id="submitButton" type="submit" value="Search">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

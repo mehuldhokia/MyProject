@@ -1,0 +1,48 @@
+{% extends '../theme.html' %}
+{% load static %}
+
+{% block title %} About Page {% endblock %}
+
+{% block content %} 
+
+<section class="page-section bg-primary" id="about">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-12 text-center">
+                <h2 class="text-white mt-0">Student Information</h2>
+                <hr class="divider divider-light" />
+                {% if flag %}
+                    <p align="center" style="color:#f4623a">
+                        Data is updated successfully
+                    </p>
+                {% endif %}
+                <table class="table" width='100%' cellspacing='0' cellpadding=10 border=1 style="background-color: #fff; border:1px solid coral; color:coral; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Student Name</th>
+                        <th>Course</th>
+                        <th>Semester</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for rec in data %}
+                <tr>
+                    <td>{{ rec.id }}</td>
+                    <td align="left">{{ rec.sname }}</td>
+                    <td>{{ rec.course }}</td>
+                    <td>{{ rec.sem }}</td>
+                    <td><a href='/editStudent/{{ rec.id }}'>Edit</a></td>
+                    <td><a href="{% url 'student_del' rec.id %}"> X </a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

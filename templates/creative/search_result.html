@@ -1,0 +1,46 @@
+{% extends '../theme.html' %}
+{% load static %}
+
+{% block title %} About Page {% endblock %}
+
+{% block content %} 
+
+<section class="page-section bg-primary" id="about">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="text-white mt-0">Search Results</h2>
+                <hr class="divider divider-light" />
+                <p class="text-white-75 mb-4">
+                    You searched for '{{ find }}'
+                    <table width='100%' cellspacing='0' cellpadding=10 border=1 style="border:1px solid white; color: white; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Student Name</th>
+                            <th>Course</th>
+                            <th>Semester</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for rec in data %}
+                    <tr>
+                        <td>{{ rec.id }}</td>
+                        <td>{{ rec.sname }}</td>
+                        <td>{{ rec.course }}</td>
+                        <td>{{ rec.sem }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4">No data found</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                    </table>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

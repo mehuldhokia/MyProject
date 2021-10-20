@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>{% block title %} Page Title {% endblock %}</title>
+</head>
+<body style="color: #222; background-color: greenyellow;">
+    
+    <center>
+        <a href="/">Home Page</a> | 
+        <a href="/today/">Current Date</a> - | -  
+        <a href="/show/">MyApp Message</a> | 
+        <a href="/hello/">HelloApp Message</a> | 
+        <a href="/abc/">Django Message</a>
+    </center>
+    <hr>
+    
+    {% block content %}
+        Contents goes here...
+    {% endblock %}
+
+    {% block footer %}
+        Footer Area
+    {% endblock %}
+</body>
+</html>
