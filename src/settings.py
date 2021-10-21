@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-a+a9%#r0&4a!a@487)+9*h+g12dzrdv9!v&jcg#+3@n3m(lfsp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['msc-django-myproject.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'src.urls'
@@ -123,7 +124,6 @@ USE_TZ = True
 import dj_database_url
 db_from_venv = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_venv)
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
